@@ -23,7 +23,8 @@
         "gulp-uncss": "^1.0.6"
     },
     "scripts": {
-        "dev": "gulp"
+        "dev": "gulp",
+        "browser": "gulp browser-sync"
     },
     "author": "",
     "license": "ISC",
