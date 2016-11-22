@@ -26,7 +26,7 @@
          */
         function getAll() {
             var deferred = $q.defer();
-            $http.get('https://jsonplaceholder.typicode.com/users')
+            $http.get('data/walkingDeadCharacters.json')
                 .success(function(data) {
                     deferred.resolve(data);
                     $log.info('API chargée');

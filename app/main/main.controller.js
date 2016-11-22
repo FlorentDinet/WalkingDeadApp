@@ -18,6 +18,22 @@
         var vm = this;
         vm.title = "Hello Angular by StyleGuide";
         vm.users = users;
+        console.log(users);
+
+        window.counter = 0;
+
+        var snackbarContainer = document.querySelector('#demo-toast-example');
+
+        vm.deleteUser = function(user) {
+            console.log(user);
+            var id = vm.users.indexOf(user);
+            vm.users.splice(id,1);
+            // TOAST
+            var data = {message: 'Malheureusement ' + user.pseudo + ' est mort'};
+            snackbarContainer.MaterialSnackbar.showSnackbar(data);
+
+        };
+
     }
 
 }());

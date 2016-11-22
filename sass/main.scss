@@ -3,9 +3,34 @@
 */
 
 
+body {
+  background-color: #EFEFEF;
+}
+
 /*
 * For Page
 */
+
+.main {
+  padding-top:50px;
+}
+
+section.character {
+  position: relative;
+  max-width:860px;
+  margin-bottom: 20px;
+    header {
+      img {
+        width: 100%;
+        height: auto;
+      }
+  }
+  .delete {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+}
 
 .page {}
 
