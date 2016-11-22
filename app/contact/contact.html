@@ -1,0 +1,65 @@
+<h3>{{ contact.title }}</h3>
+<hr />
+<p><i>Compléter le formulaire de contact</i></p>
+<div class="row">
+    <form ng-submit="contact.submitForm(userForm.$valid)" name="userForm" class="col s8" novalidate>
+        <div class="row">
+            <div class="input-field col s6">
+                <input ng-model="contact.first_name" ng-required="true" id="first_name" namd="first_name" type="text" class="validate">
+                <label required for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input ng-model="contact.last_name" ng-required="true" id="last_name" name="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input ng-model="contact.email" ng-required="true" id="email" name="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field col s6">
+                <input name="group1" type="radio" id="test1" />
+                <label for="test1">Administrateur</label>
+                <input name="group1" type="radio" id="test2" />
+                <label for="test2">Editeur</label>
+                <input class="with-gap" name="group1" type="radio" id="test3" />
+                <label for="test3">Commercial</label>
+                <input name="group1" type="radio" id="test4" disabled="disabled" />
+                <label for="test4">Technicien</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <select class="browser-default">
+                        <option value="" disabled selected>Le sujet</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea required ng-pattern="/[a-z0-9]{4,150}/im" id="icon_prefix2" class="materialize-textarea"></textarea>
+                <label for="icon_prefix2">Contenu</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <p>
+                <input type="checkbox" id="cgu" />
+                <label for="cgu">J'ai lu les <a>Conditions Generales Utilisations</a>.</label>
+            </p>
+        </div>
+
+        <div class="row">
+            <button ng-disabled="userForm.$invalid" class="waves-effect waves-light btn" type="submit">
+                <i class="material-icons">send</i>Envoyer l'email
+            </button>
+        </div>
+    </form>
+</div>
