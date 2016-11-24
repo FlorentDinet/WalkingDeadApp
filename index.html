@@ -3,94 +3,71 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0">
-
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>WalkingDeadApp</title>
     <!--
         # CSS
      -->
-
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- My CSS -->
     <link rel="stylesheet" href="./dist/css/main.min.css" media="screen" title="no title" charset="utf-8">
-    <!-- MATERIAL DESIGN LITE -->
-    <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css" />
     <!-- ANGULAR MATERIAL CSS -->
-    <!-- <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"> -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+    <!--<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">-->
     <!-- LOADING BAR -->
-    <!-- <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" type="text/css" media="all" /> -->
-    <!-- <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" charset="utf-8"> -->
+     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" type="text/css" media="all" /> 
     <!-- Jquery-->
     <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script> -->
-
-
     <!--
         # JS
      -->
-
     <!--All JS scripts are in head beceause is more fast to load -->
     <!-- ANGULAR -->
     <script src="./bower_components/angular/angular.min.js"></script>
     <!-- ANGULAR ROUTE -->
     <script type="text/javascript" src="./bower_components/angular-route/angular-route.min.js"></script>
-    <!-- ANGULAR ANIMATE -->
-    <script src="./bower_components/angular-animate/angular-animate.js" charset="utf-8"></script>
-    <!-- MATERIAL DESIGN LITE -->
-    <script src="./bower_components/material-design-lite/material.min.js"></script>
+    <!-- ANGULAR MATERIAL -->
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/angular-messages/angular-messages.min.js"></script>
     <!-- APP ANGULAR MINIFY BY GULP -->
     <script src="./dist/js/app.min.js" charset="utf-8 "></script>
-    <!-- ANGULAR MATERIAL -->
-    <!-- <script src="./bower_components/angular-material/angular-material.js"></script> -->
-
+    <!-- MATERIAL DESIGN LITE -->
+    <!--<script src="./bower_components/material-design-lite/material.min.js"></script>-->
     <!--Google MAP-->
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUO9bGSDODUZfUjbtaYeuoy8VGimyhGM">
     </script> -->
-
     <!-- Librairie Angular Loading Bar -->
-    <!-- <script src="bower_components/angular-loading-bar/build/loading-bar.min.js" charset="utf-8"></script> -->
-
+     <script src="bower_components/angular-loading-bar/build/loading-bar.min.js" charset="utf-8"></script> 
     <!-- Librairie Angular Messages -->
     <!--<script src="bower_components/angular-messages/angular-messages.min.js" charset="utf-8"></script>-->
-
     <!-- Librairie Angular i18n -->
     <!--<script src="bower_components/angular-i18n/angular-locale_fr-fr.js" charset="utf-8"></script>-->
-
     <!-- Librairie Angular Cookies -->
     <!--<script src="bower_components/angular-cookies/angular-cookies.min.js" charset="utf-8"></script>-->
-
     <!-- Librairie Moment -->
     <!--<script src="bower_components/moment/min/moment-with-locales.min.js" charset="utf-8"></script>-->
-
     <!-- GMAP -->
     <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek" charset="utf-8"></script>-->
     <!-- <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script> -->
-
     <!--<script src='./bower_components/lodash/dist/lodash.min.js'></script>-->
-
     <!--Angular Google Map-->
     <!--<script src='./bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>-->
-
 </head>
 
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-
+<md-content>
         <!--Include Navbar -->
         <div ng-include=" 'partials/header.html' "></div>
-        <!--Menu Naviguation-->
-
 
         <!-- <div id="loading-bar-container"></div> -->
-
         <!--All views loaded here-->
         <!-- angular templating -->
-        <div class="page mdl-layout__content" ng-view></div>
-
-    </div>
+        <div class="" ng-view></div>
+</md-content>
 </body>
-
-
 
 </html>

@@ -9,7 +9,7 @@
      * All Routing here...
      * Each Route can resolve some datas before send in controller
      */
-    angular.module('app', ['ngRoute', 'ngAnimate']).config(function($routeProvider) {
+    angular.module('app', ['ngRoute' , 'ngMaterial']).config(function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'app/main/main.html',

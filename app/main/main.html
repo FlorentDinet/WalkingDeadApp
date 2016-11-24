@@ -1,10 +1,36 @@
-<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+<!--<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action" type="button"></button>
-</div>
-<div class="main mdl-grid">
-    <div class="mdl-cell mdl-cell--8-col">
-        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp character" ng-repeat="user in main.users track by user.id">
+</div>-->
+<div layout-xs="column" layout="row">
+    <div class="md-padding" flex-xs flex-gt-xs="50" layout="column">
+        <md-card ng-repeat="user in main.users track by user.id">
+            <img ng-src="{{user.photo}}" class="md-card-image" alt="Washed Out">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{user.pseudo}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>
+                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                    Greene's musical language: feel it. It's a simple request, as well...
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Favorite">
+                    <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Settings">
+                    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Share">
+                    <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <!--<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp character" ng-repeat="user in main.users track by user.id">
             <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
                 <img ng-src="{{user.photo}}" />
             </header>
@@ -19,12 +45,9 @@
                     <p>{{user.naissance}}</p>
                 </div>
             </div>
-        </section>
-    </div>
-    <div class="mdl-cell mdl-cell--4-col mdl-card mdl-card__supporting-text mdl-color--grey-300">
-        <!-- FORMULAIRE -->
-        <!-- Simple Textfield -->
-        <!-- Textfield with Floating Label -->
+        </section>-->
+    <div class="md-padding" flex-xs flex-gt-xs="50" layout="column">
+        <!--FORMULAIRE-->
         <h4>Ajouter un personnage</h4>
         <form action="#">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -43,4 +66,4 @@
             </div>
         </form>
     </div>
-</div>
+    </div>
