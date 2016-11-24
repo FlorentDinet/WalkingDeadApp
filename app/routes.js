@@ -9,7 +9,7 @@
      * All Routing here...
      * Each Route can resolve some datas before send in controller
      */
-    angular.module('app', ['ngRoute' , 'ngMaterial']).config(function($routeProvider) {
+    angular.module('app', ['ngRoute' ,'ngMaterial','ngMessages','ngAnimate']).config(function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'app/main/main.html',
@@ -26,6 +26,12 @@
                 controller: 'contactCtrl',
                 controllerAs: 'contact'
             });
+    }).config(function($mdThemingProvider) {
+       $mdThemingProvider.theme('default')
+      .primaryPalette('blue-grey') // specify primary color, all
+                            // other color intentions will be inherited
+                            // from default
+      .accentPalette('lime');
     });
 
 

@@ -4,7 +4,8 @@
 
 
 body {
-  background-color: #EFEFEF;
+  // background-color: grey;
+
 }
 
 /*
@@ -72,5 +73,22 @@ form input.ng-invalid.ng-touched {
 }
 
 form input.ng-valid.ng-touched {
-    background-color: #78FA89;
+  //  background-color: #78FA89;
+}
+
+.characterThumb {
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    background-size: cover;
+    height: 250px;
+}
+
+md-chips.md-default-theme .md-chips, md-chips .md-chips {
+  box-shadow: none;
+}
+
+md-content.md-default-theme, md-content {
+  // background:none;
+  background-image: url('http://orig03.deviantart.net/fbc2/f/2009/335/3/9/apocalypse_by_pierremassine.jpg');
+  background-size: cover;
 }

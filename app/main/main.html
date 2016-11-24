@@ -3,67 +3,58 @@
     <button class="mdl-snackbar__action" type="button"></button>
 </div>-->
 <div layout-xs="column" layout="row">
+    <div class="md-padding" flex-xs flex-gt-xs="50" layout="row" layout-wrap>
+        <div flex-xs flex-gt-xs="50" ng-repeat="user in main.users track by user.id">
+            <md-card md-colors="{background: 'blue-grey'}">
+                <div class="characterThumb" style="background-image:url('{{user.photo}}');"></div>
+                <!--<img ng-src="" class="md-card-image" alt="Washed Out">-->
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{user.pseudo}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    {{user.sexe? "Homme" : "Femme"}}
+                    <md-chips>
+                        <md-chip>{{user.activite}}</md-chip>
+                        <md-chip>{{user.naissance}}</md-chip>
+                    </md-chips>
+
+                    <md-button class="md-fab md-accent" aria-label="Favorite" ng-click="main.deleteUser(user)">
+                        <md-icon><i class="material-icons">sentiment_very_dissatisfied</i></md-icon>
+                    </md-button>
+                </md-card-content>
+
+            </md-card>
+        </div>
+    </div>
+
     <div class="md-padding" flex-xs flex-gt-xs="50" layout="column">
-        <md-card ng-repeat="user in main.users track by user.id">
-            <img ng-src="{{user.photo}}" class="md-card-image" alt="Washed Out">
+        <md-card>
+            <!--FORMULAIRE-->
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">{{user.pseudo}}</span>
+                    <h4>Ajouter un personnage</h4>
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
-                <p>
-                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-                    Greene's musical language: feel it. It's a simple request, as well...
-                </p>
-            </md-card-content>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button class="md-icon-button" aria-label="Favorite">
-                    <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                </md-button>
-                <md-button class="md-icon-button" aria-label="Settings">
-                    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                </md-button>
-                <md-button class="md-icon-button" aria-label="Share">
-                    <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-                </md-button>
-            </md-card-actions>
-        </md-card>
-    </div>
-    <!--<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp character" ng-repeat="user in main.users track by user.id">
-            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
-                <img ng-src="{{user.photo}}" />
-            </header>
-            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
-                <button class="delete mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="main.deleteUser(user)">
-              <i class="material-icons">sentiment_very_dissatisfied</i>
-            </button>
-                <div class="mdl-card__supporting-text">
-                    <h4>{{user.pseudo}}</h4>
-                    <p>{{user.sexe}}</p>
-                    <p>{{user.activite}}</p>
-                    <p>{{user.naissance}}</p>
-                </div>
-            </div>
-        </section>-->
-    <div class="md-padding" flex-xs flex-gt-xs="50" layout="column">
-        <!--FORMULAIRE-->
-        <h4>Ajouter un personnage</h4>
-        <form action="#">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="pseudo">
-                <label class="mdl-textfield__label" for="pseudo">Pseudo</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                <form action="#">
+                    <md-input-container>
+                        <label for="pseudo">Pseudo</label>
+                        <input ng-model="user.title" id="pseudo">
+                    </md-input-container>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
               <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
               <span class="mdl-radio__label">Homme</span>
             </label>
-                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
               <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
               <span class="mdl-radio__label">Femme</span>
             </label>
-            </div>
-        </form>
+                    </div>
+                </form>
+            </md-card-content>
+        </md-card>
     </div>
-    </div>
+</div>
