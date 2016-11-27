@@ -11,9 +11,9 @@
             // In the return function, we must pass in a single parameter which will be the data we will work on.
             // We have the ability to support multiple other parameters that can be passed into the filter optionally
             return function (input, today) {
-/*                console.log("tri en cours");
-                console.log(input);
-                console.log("today", (today.getMonth() + 2));*/
+                /*                console.log("tri en cours");
+                                console.log(input);
+                                console.log("today", (today.getMonth() + 2));*/
 
                 input.forEach(function (user) {
                     if (user.naissance.slice(3, 5) == (today.getMonth() + 2)) {
@@ -26,7 +26,14 @@
 
 
         });
-
+        /*.directive('sliderAge', function () {
+            return {
+                restrict: 'E',
+                scope: false,
+                templateUrl: 'app/shared/directives/sliderAge.html'
+            };
+        });
+*/
     mainCtrl.$inject = ['users', '$mdToast', '$scope'];
 
     /**
@@ -51,8 +58,8 @@
         };
         vm.ageFiltered = 80;
         vm.ageFiltering = function (character) {
-            console.log("annee"+character.naissance.slice(6,10));
-            return character.naissance.slice(6,10) >= (2016-vm.ageFiltered);
+            console.log("annee" + character.naissance.slice(6, 10));
+            return character.naissance.slice(6, 10) >= (2016 - vm.ageFiltered);
         };
         vm.today = new Date();
 
