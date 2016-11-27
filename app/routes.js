@@ -27,12 +27,15 @@
                 controllerAs: 'contact'
             });
     }).config(function($mdThemingProvider) {
-       $mdThemingProvider.theme('default')
-      .primaryPalette('blue-grey') // specify primary color, all
-                            // other color intentions will be inherited
-                            // from default
-      .accentPalette('lime');
-    });
+
+    // Configure a dark theme with primary foreground yellow
+
+    $mdThemingProvider.theme('docs-dark', 'default')
+      .primaryPalette('lime')
+      .accentPalette('lime')
+      .dark();
+
+  });
 
 
 }());

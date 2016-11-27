@@ -2,10 +2,24 @@
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action" type="button"></button>
 </div>-->
-<div layout-xs="column" layout="row">
+
+<div layout-xs="column" layout="row" md-theme="docs-dark">
+</div>
+<div layout-xs="column" layout="row" md-theme="docs-dark">
     <div class="md-padding" flex-xs flex-gt-xs="50" layout="row" layout-wrap>
-        <div flex-xs flex-gt-xs="50" ng-repeat="user in main.users track by user.id">
-            <md-card md-colors="{background: 'blue-grey'}">
+        <div flex-xs="100" flex-gt-xs="100">
+        <md-card>
+            <md-card-content>
+                <md-radio-group ng-model="main.sexe" flex layout="row" layout-align="start center" required name="sexe">
+                            <md-radio-button value="true" class="md-primary">Homme</md-radio-button>
+                            <md-radio-button value="false" class="md-primary">Femme</md-radio-button>
+                </md-radio-group>
+            </md-card-content>
+    </md-card>
+        </div>
+        <div flex-xs="100" flex-gt-xs="50" ng-repeat="user in main.users track by user.id">
+            <!--            <md-card md-colors="{background: 'blue-grey'}">-->
+            <md-card>
                 <div class="characterThumb" style="background-image:url('{{user.photo}}');"></div>
                 <!--<img ng-src="" class="md-card-image" alt="Washed Out">-->
                 <md-card-title>
@@ -19,16 +33,15 @@
                         <md-chip>{{user.activite}}</md-chip>
                         <md-chip>{{user.naissance}}</md-chip>
                     </md-chips>
-
-                    <md-button class="md-fab md-accent" aria-label="Favorite" ng-click="main.deleteUser(user)">
-                        <md-icon><i class="material-icons">sentiment_very_dissatisfied</i></md-icon>
+                    <md-button class="md-fab" aria-label="Favorite" ng-click="main.deleteUser(user)">
+                        <md-icon>
+                            <i class="material-icons">sentiment_very_dissatisfied</i>
+                        </md-icon>
                     </md-button>
                 </md-card-content>
-
             </md-card>
         </div>
     </div>
-
     <div class="md-padding" flex-xs flex-gt-xs="50" layout="column">
         <md-card>
             <!--FORMULAIRE-->
@@ -38,21 +51,117 @@
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
-                <form action="#">
-                    <md-input-container>
-                        <label for="pseudo">Pseudo</label>
-                        <input ng-model="user.title" id="pseudo">
-                    </md-input-container>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-              <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
-              <span class="mdl-radio__label">Homme</span>
-            </label>
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-              <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
-              <span class="mdl-radio__label">Femme</span>
-            </label>
+                <form ng-submit="main.addCharacter()" name="charForm">
+                    <!-- ## UN ROW ## -->
+                    <div layout="row" layout-align="space-between center">
+                        <md-input-container flex>
+                            <label for="pseudo">Pseudo</label>
+                            <input ng-model="main.form.pseudo" id="pseudo" name="pseudo" required>
+                            <div ng-messages="charForm.pseudo.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label for="photo">Photo</label>
+                            <input ng-model="main.form.photo" id="photo" name="photo" required ng-pattern="/.+((.png)|(.jpeg)|(.jpg))/">
+                            <div ng-messages="charForm.photo.$error">
+                                <div ng-message-exp="['required', 'pattern']">This is required.</div>
+                            </div>
+                        </md-input-container>
                     </div>
+                    <!-- #### -->
+                    <!-- ## UN ROW ## -->
+                    <div layout="row">
+                        <md-radio-group ng-model="main.form.sexe" flex layout="row" layout-align="start center" required name="sexe">
+                            <md-radio-button value="true" class="md-primary">Homme</md-radio-button>
+                            <md-radio-button value="false" class="md-primary">Femme</md-radio-button>
+                            <div ng-messages="charForm.sexe.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-radio-group>
+                        <md-input-container flex>
+                            <label for="activite">Activité</label>
+                            <input ng-model="main.form.activite" id="activite" required name="activite">
+                            <div ng-messages="charForm.activite.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <!-- #### -->
+                    <!-- ## UN ROW ## -->
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>D.O.B</label>
+                            <md-datepicker ng-model="main.form.naissance" required name="naissance"></md-datepicker>
+                            <div ng-messages="charForm.naissance.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label for="pays">Pays</label>
+                            <input ng-model="main.form.pays" id="pays" required name="pays">
+                            <div ng-messages="charForm.pays.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <!-- #### -->
+                    <!-- ## UN ROW ## -->
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label for="latitude">Latitude</label>
+                            <input ng-model="main.form.coord.lat" id="latitude" required name="lattitude" ng-pattern="/^[0-9\.]*$/">
+                            <div ng-messages="charForm.lattitude.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                            <p>ici {{ charForm.pseudo.$valid && charForm.sexe.$valid && charForm.photo.$valid && charForm.activite.$valid
+                                && charForm.naissance.$valid && charForm.lattitude.$valid && charForm.longitude.$valid &&
+                                charForm.pays.$valid && charForm.resume.$valid && main.form.saison.length > 0 }}
+                            </p>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label for="longitude">Longitude</label>
+                            <input ng-model="main.form.coord.long" id="longitude" required name="longitude" ng-pattern="/^[0-9\.]*$/">
+                            <div ng-messages="charForm.longitude.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <!-- #### -->
+                    <!-- ## UN ROW ## -->
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label for="resume">Résumé</label>
+                            <textarea ng-model="main.form.biography" id="resume" md-maxlength="150" rows="5" md-select-on-focus required name="resume"></textarea>
+                            <div ng-messages="charForm.resume.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <!-- #### -->
+                    <!-- ## UN ROW ## -->
+                    <div layout="row" layout-wrap flex>
+                        <div flex ng-repeat="item in main.items">
+                            <md-checkbox ng-checked="main.exists(item, main.form.saison)" ng-click="main.toggle(item, main.form.saison)">
+                                {{ item }} <span ng-if="main.exists(item, main.form.saison)"> x</span>
+                            </md-checkbox>
+                        </div>
+                    </div>
+                    <!-- #### -->
+                    <!-- ## UN ROW ## -->
+                    <md-button ng-disabled="
+                    (charForm.pseudo.$valid &&
+                    charForm.sexe.$valid &&
+                    charForm.photo.$valid &&
+                    charForm.activite.$valid &&
+                    charForm.naissance.$valid &&
+                    charForm.lattitude.$valid &&
+                    charForm.longitude.$valid &&
+                    charForm.pays.$valid &&
+                    charForm.resume.$valid &&
+                    main.form.saison.length > 0)
+                    " class="md-raised" type="submit">Submit</md-button>
+                    <!-- #### -->
                 </form>
             </md-card-content>
         </md-card>

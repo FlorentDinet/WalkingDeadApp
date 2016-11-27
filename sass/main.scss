@@ -2,10 +2,24 @@
 * Custom CSS in SASS
 */
 
+html, body {
+  height: inherit;
+  //min-height: 600px;
+}
+
+html {
+  // background: darkgrey;
+ background-color: rgb(19, 46, 50);
+ background-image: url('http://orig03.deviantart.net/fbc2/f/2009/335/3/9/apocalypse_by_pierremassine.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
 
 body {
-  // background-color: grey;
-
+  // height: 100%;
+  background: none;
+   
 }
 
 /*
@@ -32,8 +46,6 @@ section.character {
     top: 30px;
   }
 }
-
-.page {}
 
 .ng-enter {
     z-index: 8888;
@@ -68,13 +80,13 @@ section.character {
 * For Form
 */
 
-form input.ng-invalid.ng-touched {
+/*form input.ng-invalid.ng-touched {
     background-color: #FA787E;
 }
 
 form input.ng-valid.ng-touched {
-  //  background-color: #78FA89;
-}
+    background-color: #78FA89;
+}*/
 
 .characterThumb {
     background-repeat: no-repeat;
@@ -88,7 +100,10 @@ md-chips.md-default-theme .md-chips, md-chips .md-chips {
 }
 
 md-content.md-default-theme, md-content {
-  // background:none;
-  background-image: url('http://orig03.deviantart.net/fbc2/f/2009/335/3/9/apocalypse_by_pierremassine.jpg');
-  background-size: cover;
+  background:none;
+
+}
+
+form md-radio-group {
+  margin-bottom: 20px;
 }
