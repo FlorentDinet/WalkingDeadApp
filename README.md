@@ -87,7 +87,7 @@ Exemple: https://github.com/Symfomany/angu/blob/master/datas/got.json
 
 8. Créer un champs au dessus de la liste permettant de filtrer de manière instantanée les personnage selon le mot que l’on tape dedans.
 
-9 Créer un filtre qui ajoute une classe animate shake et une icon “birthday” si un des personnages est née le même mois que celui courant.
+9. Créer un filtre qui ajoute une classe animate shake et une icon “birthday” si un des personnages est née le même mois que celui courant.
 
 10. Avec Animate.css et Angular-animate, ajouter une animation quand on supprime un personnage
 https://divshot.com/blog/tips-and-tricks/angular-1-2-and-animate-css/
