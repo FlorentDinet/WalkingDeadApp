@@ -17,7 +17,7 @@
 
                 input.forEach(function (user) {
                     if (user.naissance.slice(3, 5) == (today.getMonth() + 2)) {
-                        console.log("BIRTHDAY");
+/*                        console.log("BIRTHDAY");*/
                         user.isBirthday = true;
                     }
                 });
@@ -46,6 +46,7 @@
         var vm = this;
         vm.title = "Hello Angular by StyleGuide";
         vm.users = users;
+        $scope.users = users;
         vm.idCount = 0;
         vm.items = [1, 2, 3, 4, 5, 6, 7];
         vm.selected = [];
@@ -58,7 +59,7 @@
         };
         vm.ageFiltered = 80;
         vm.ageFiltering = function (character) {
-            console.log("annee" + character.naissance.slice(6, 10));
+/*            console.log("annee" + character.naissance.slice(6, 10));*/
             return character.naissance.slice(6, 10) >= (2016 - vm.ageFiltered);
         };
         vm.today = new Date();

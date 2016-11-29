@@ -17,6 +17,8 @@
             scope: { users: '=users', coords: '=coords' },
             template: '<div id="map"></div>',
             link: function(scope, element, attrs) {
+                console.log(scope.$parent.users);
+                scope.users = scope.$parent.users;
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: scope.coords,
                     zoom: 5

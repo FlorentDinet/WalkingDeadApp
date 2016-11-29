@@ -3,8 +3,6 @@
     <button class="mdl-snackbar__action" type="button"></button>
 </div>-->
 <div layout-xs="column" layout="row" md-theme="docs-dark">
-</div>
-<div layout-xs="column" layout="row" md-theme="docs-dark">
     <div class="md-padding" flex-xs flex-gt-xs="50" layout="row" layout-wrap>
         <div class="characterCard" flex-xs="100" flex-gt-xs="50" ng-repeat="user in main.users | filter: main.ageFiltering | birthdayShaker : main.today | filter : main.genderFiltered:strict | filter : main.pseudoFiltered:strict ; track by user.id">
             <!--            <md-card md-colors="{background: 'blue-grey'}">-->
@@ -27,6 +25,11 @@
                             <i class="material-icons">sentiment_very_dissatisfied</i>
                         </md-icon>
                     </md-button>
+                    <md-button class="md-fab" aria-label="See detail" ng-href="#/char/{{user.id}}">
+                        <md-icon>
+                            <i class="material-icons">search</i>
+                        </md-icon>
+                    </md-button>
                 </md-card-content>
             </md-card>
         </div>
@@ -43,7 +46,8 @@
                     <label for="pseudoFiltered">Filtrer par pseudo</label>
                     <input ng-model="main.pseudoFiltered.pseudo" name="pseudoFiltered">
                 </md-input-container>
-                <slider-age></slider-age>        
+                <slider-age></slider-age>   
+<!--                <map></map>     -->
             </md-card-content>
         </md-card>
         <md-card>
