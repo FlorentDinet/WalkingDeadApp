@@ -55,13 +55,23 @@ section.character {
     z-index: 9999;
 }
 
+.page        {
+    bottom:0; 
+    position:absolute; 
+    text-align:left;
+    top:0;  
+    width:100%; 
+}
+
 .page.ng-enter {
-    animation: fadeIn 0.5s both ease-in;
+/*    animation: fadeIn 0.5s both ease-in;*/
+animation: fadeInRight 1s;
     z-index: 8888;
 }
 
 .page.ng-leave {
-    animation: fadeOut 0.5s both ease-in;
+  animation: fadeOutLeft 1s;
+/*    animation: fadeOut 0.5s both ease-in;*/
     z-index: 9999;
 }
 
