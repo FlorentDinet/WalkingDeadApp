@@ -94,17 +94,17 @@ https://divshot.com/blog/tips-and-tricks/angular-1-2-and-animate-css/
 
 11. Créer un range slider et un filtre pour filtrer par âge. Le range slider sera une Directive que vous créer (voir comment créer une directive) qui affiche un range slider et l’age du range slider
 
-
-11 Bis: Créer une DIrective permettant d’afficher mes utilisateurs selon leurs coordonées GPS sous une carte avec Google Map. Faites le sans Directive puis après avec Directives.
-
-https://developers.google.com/maps/documentation/javascript/tutorial?hl=FR
-
-12. Ajouter Masonry Directive pour les Cards (https://github.com/klederson/angular-masonry-directive)
-
 13. Ajouter  un bouton “voir la bio du personnage” nous amène sur une nouvelle page pour voir le détail du personnage. Son ID sera envoyé et récupéré depuis URL, une nouvelle route et un nouveau Contrôleur sera créé . Voir comment créer des routes…
 
 Bonus: Créer une Factory (BOnne pratique de factorisation) pour isoler le chargement en $http des personnage et voir comment le “resolve“ depuis le routing qui injecteras le service dans le Controlleur (bonne pratique). La factory permettra de retrouver un utilisateur selon son ID et sera utilisé donc par le second Controlleur.
 
+////////// DONE
+
+11 Bis: Créer une Directive permettant d’afficher mes utilisateurs selon leurs coordonées GPS sous une carte avec Google Map. Faites le sans Directive puis après avec Directives.
+
+https://developers.google.com/maps/documentation/javascript/tutorial?hl=FR
+
+12. Ajouter Masonry Directive pour les Cards (https://github.com/klederson/angular-masonry-directive)
 
 Bonus Ultime:
 Utiliser le module npm JSON-SERVER (https://github.com/typicode/json-server)
