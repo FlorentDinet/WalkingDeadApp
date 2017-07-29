@@ -17,7 +17,7 @@
 
                 input.forEach(function (user) {
                     if (user.naissance.slice(3, 5) == (today.getMonth() + 2)) {
-/*                        console.log("BIRTHDAY");*/
+                        /*                        console.log("BIRTHDAY");*/
                         user.isBirthday = true;
                     }
                 });
@@ -26,7 +26,7 @@
 
 
         });
-        /*.directive('sliderAge', function () {
+    /*.directive('sliderAge', function () {
             return {
                 restrict: 'E',
                 scope: false,
@@ -59,8 +59,9 @@
         };
         vm.ageFiltered = 80;
         vm.showAddPanel = false;
+        vm.markers = [];
         vm.ageFiltering = function (character) {
-/*            console.log("annee" + character.naissance.slice(6, 10));*/
+            /*            console.log("annee" + character.naissance.slice(6, 10));*/
             return character.naissance.slice(6, 10) >= (2016 - vm.ageFiltered);
         };
         vm.today = new Date();
@@ -86,8 +87,8 @@
             activite: "",
             naissance: "",
             coord: {
-                lat: null,
-                long: null
+                lat: 33.597462845626424,
+                lng: -84.183189868927
             },
             pays: "",
             resume: "",
@@ -99,6 +100,7 @@
             console.log(user);
             var id = vm.users.indexOf(user);
             vm.users.splice(id, 1);
+            removeMarker(user.pseudo);
             // TOAST
             vm.showSimpleToast(user);
         };
@@ -131,6 +133,9 @@
                 isBirthday: false
             });
 
+        console.log(vm.users);
+
+            addMarker(vm.form.coord,vm.form.pseudo);
 
             vm.form = {
                 id: 0,
@@ -140,8 +145,8 @@
                 activite: "",
                 naissance: "",
                 coord: {
-                    lat: null,
-                    long: null
+                    lat: 33.597462845626424,
+                    lng: -84.183189868927
                 },
                 pays: "",
                 resume: "",
@@ -158,6 +163,58 @@
 
         $scope.$watch('charForm.longitude.$valid', evaluateForm);
 */
+        var map;
+        var myLatLng = {
+            lat: 33.55741786324217,
+            lng: -84.1726541519165
+        };
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 8
+            });
+        }
+
+        function addMarker(markerPosition, pseudo) {
+            if (findMarker(pseudo)) {
+                findMarker(pseudo).setMap(map);
+            } else {
+                var marker = new google.maps.Marker({
+                    position: markerPosition,
+                    map: map,
+                    title: pseudo
+                });
+                var infowindow = new google.maps.InfoWindow({
+                    content: pseudo
+                });
+                marker.addListener('click', function () {
+                    infowindow.open(map, marker);
+                });
+                vm.markers.push(marker);
+            }
+        }
+
+        function removeMarker(pseudo) {
+            findMarker(pseudo).setMap(null);
+        }
+
+        function findMarker(pseudo) {
+            function byPseudo(element) {
+                return element.title == pseudo;
+            }
+            return vm.markers.find(byPseudo);
+        }
+
+        initMap();
+        //addMarker(myLatLng);
+        populateMap();
+
+        function populateMap() {
+            vm.users.forEach(function (user) {
+                addMarker(user.coord, user.pseudo);
+            });
+        }
     }
 
 }());

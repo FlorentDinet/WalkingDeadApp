@@ -98,7 +98,7 @@ https://divshot.com/blog/tips-and-tricks/angular-1-2-and-animate-css/
 
 Bonus: Créer une Factory (BOnne pratique de factorisation) pour isoler le chargement en $http des personnage et voir comment le “resolve“ depuis le routing qui injecteras le service dans le Controlleur (bonne pratique). La factory permettra de retrouver un utilisateur selon son ID et sera utilisé donc par le second Controlleur.
 
-////////// DONE
+////////// DONE ///////////
 
 11 Bis: Créer une Directive permettant d’afficher mes utilisateurs selon leurs coordonées GPS sous une carte avec Google Map. Faites le sans Directive puis après avec Directives.
 
