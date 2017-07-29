@@ -1,0 +1,27 @@
+
+<div layout-xs="column" layout="row" layout-align="center center" md-theme="docs-dark">
+<div flex-xs="100" flex-gt-xs="50">
+    <!--            <md-card md-colors="{background: 'blue-grey'}">-->
+        <md-button class="md-raised" ng-href="#/">Retour</md-button>
+    <md-card>
+        <div class="characterThumb" style="background-image:url('{{char.user.photo}}');"></div>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{char.user.pseudo}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            {{char.user.sexe? "Homme" : "Femme"}}
+            <md-chips>
+                <md-chip>{{char.user.activite}}</md-chip>
+                <md-chip class="animated" ng-class="{'shake': char.user.isBirthday, '': !char.user.isBirthday}">{{char.user.naissance}}</md-chip>
+            </md-chips>
+            <md-button class="md-fab" aria-label="Favorite" ng-click="main.deleteUser(user)">
+                <md-icon>
+                    <i class="material-icons">sentiment_very_dissatisfied</i>
+                </md-icon>
+            </md-button>
+        </md-card-content>
+    </md-card>
+</div>
+</div>

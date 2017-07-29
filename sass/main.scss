@@ -2,9 +2,21 @@
 * Custom CSS in SASS
 */
 
+html, body {
+  //height: inherit;
+  //min-height: 600px;
+}
+
+html {
+  // background: darkgrey;
+ background-color: rgb(19, 46, 50);
+ 
+}
 
 body {
-  background-color: #EFEFEF;
+  // height: 100%;
+  background: none;
+   
 }
 
 /*
@@ -32,8 +44,6 @@ section.character {
   }
 }
 
-.page {}
-
 .ng-enter {
     z-index: 8888;
 }
@@ -42,13 +52,32 @@ section.character {
     z-index: 9999;
 }
 
+.page        {
+    bottom:0; 
+    position:absolute; 
+    text-align:left;
+    top:0;  
+    width:100%; 
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background-image: url('http://orig03.deviantart.net/fbc2/f/2009/335/3/9/apocalypse_by_pierremassine.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: fixed;
+}
+
 .page.ng-enter {
-    animation: fadeIn 0.5s both ease-in;
+/*    animation: fadeIn 0.5s both ease-in;*/
+animation: fadeInRight 1s;
     z-index: 8888;
 }
 
 .page.ng-leave {
-    animation: fadeOut 0.5s both ease-in;
+  animation: fadeOutLeft 1s;
+/*    animation: fadeOut 0.5s both ease-in;*/
     z-index: 9999;
 }
 
@@ -60,6 +89,7 @@ section.character {
 #map {
     height: 450px;
     width: 100%;
+    color: black;
 }
 
 
@@ -67,10 +97,107 @@ section.character {
 * For Form
 */
 
-form input.ng-invalid.ng-touched {
+/*form input.ng-invalid.ng-touched {
     background-color: #FA787E;
 }
 
 form input.ng-valid.ng-touched {
     background-color: #78FA89;
+}*/
+
+.characterThumb {
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    background-size: cover;
+    height: 250px;
 }
+
+md-chips.md-default-theme .md-chips, md-chips .md-chips {
+  box-shadow: none;
+}
+
+md-content.md-default-theme, md-content {
+  background:none;
+
+}
+
+form md-radio-group {
+  margin-bottom: 20px;
+}
+
+.characterCard.ng-enter {
+  animation: flipInX 1s;
+}
+
+.characterCard.ng-leave {
+  animation: rotateOutDownLeft 1s;
+}
+
+/*@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  
+  12.5% {
+    -webkit-transform: translateX(-6px) rotateY(-5deg);
+    transform: translateX(-6px) rotateY(-5deg);
+  }
+  
+  37.5% {
+    -webkit-transform: translateX(5px) rotateY(4deg);
+    transform: translateX(5px) rotateY(4deg);
+  }
+  
+  62.5% {
+    -webkit-transform: translateX(-3px) rotateY(-2deg);
+    transform: translateX(-3px) rotateY(-2deg);
+  }
+  
+  87.5% {
+    -webkit-transform: translateX(2px) rotateY(1deg);
+    transform: translateX(2px) rotateY(1deg);
+  }
+  
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  
+  12.5% {
+    -webkit-transform: translateX(-6px) rotateY(-5deg);
+    transform: translateX(-6px) rotateY(-5deg);
+  }
+  
+  37.5% {
+    -webkit-transform: translateX(5px) rotateY(4deg);
+    transform: translateX(5px) rotateY(4deg);
+  }
+  
+  62.5% {
+    -webkit-transform: translateX(-3px) rotateY(-2deg);
+    transform: translateX(-3px) rotateY(-2deg);
+  }
+  
+  87.5% {
+    -webkit-transform: translateX(2px) rotateY(1deg);
+    transform: translateX(2px) rotateY(1deg);
+  }
+  
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  -webkit-animation: shake 400ms ease-in-out;
+  animation: shake 400ms ease-in-out;
+}*/
